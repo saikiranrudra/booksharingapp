@@ -48,9 +48,17 @@ const useStyles = makeStyles(theme => ({
 
 		}
 	},
-	bio: {
+	about: {
 		gridColumn: "1/18",
 		gridRow: "9/19",	
+		"& > h2": {
+			fontSize: "1.2rem",
+			fontWeight: 700,
+			margin: "1rem 1.8rem",
+			color: "#8395a7",
+		}
+	},
+	bio: {
 		"& > h2": {
 			fontSize: "1.2rem",
 			fontWeight: 700,
@@ -73,6 +81,12 @@ const Dashboard = () => {
 				<Paper className={classes.needScore}>4.2</Paper>
 			</div>
 			<Paper className={classes.bio}>
+				<Typography variant="h2">ABOUT</Typography>
+				<Typography variant="body1">
+					
+				</Typography>
+			</Paper>
+			<Paper className={classes.about}>
 				<Typography variant="h2">ABOUT</Typography>
 				<DropDownDisplay />
 			</Paper>
