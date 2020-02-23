@@ -4,6 +4,7 @@ import {Paper, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core";
 
 import DropDownDisplay from "./DropDownDisplay";
+import Transections from "./Transections"
 
 const useStyles = makeStyles(theme => ({
 	container: {
@@ -11,7 +12,9 @@ const useStyles = makeStyles(theme => ({
 		gridTemplateColumns: "repeat(auto-fill, 2rem)",
 		gridTemplateRows: "repeat(auto-fill, 2rem)",
 		gridAutoRows: "2rem",
-		margin: theme.spacing(2)
+		padding: "1rem .5rem",
+		gridGap: ".5rem",
+		width: "100%"
 	},
 	imageContainer: {
 		display: "inline-block",
@@ -24,10 +27,11 @@ const useStyles = makeStyles(theme => ({
 		borderRadius: "4px"
 	},
 	info: {
-		gridColumn: "10/15",
+		gridColumn: "8/18",
 		gridRow: "1/8",
 		alignItems: "center",
 		justifySelf: "flex-start",
+		padding: "0.9rem",
 		"& > h3": {
 			fontSize: "1.7rem",
 			fontWeight: "300"
@@ -45,12 +49,17 @@ const useStyles = makeStyles(theme => ({
 			fontSize: "1rem",
 			fontWeight: 500,
 			color: "#eee"
-
-		}
+		},
+		"& > p": {
+			padding: "1rem 0"
+		},
+		display: "grid",
+		gridTemplateRows: "2rem 2rem 2rem 1fr",
+		gridTemplateColumns: "1fr 2.5rem"
 	},
 	about: {
 		gridColumn: "1/18",
-		gridRow: "9/19",	
+		gridRow: "8/14",	
 		"& > h2": {
 			fontSize: "1.2rem",
 			fontWeight: 700,
@@ -58,37 +67,33 @@ const useStyles = makeStyles(theme => ({
 			color: "#8395a7",
 		}
 	},
-	bio: {
-		"& > h2": {
-			fontSize: "1.2rem",
-			fontWeight: 700,
-			margin: "1rem 1.8rem",
-			color: "#8395a7",
-		}
+	booksTransection: {
+		gridColumn: "18 / -1",
+		gridRow: "1/14"	
 	}
 }));
 
 const Dashboard = () => {
-	const classes = useStyles();
+	const classes = useStyles(); 
 	return(
 		<div className={classes.container}>
 			<Paper className={classes.imageContainer}>
 				<img className={classes.image} src="https://pbs.twimg.com/profile_images/969073897189523456/rSuiu_Hr.jpg" />
 			</Paper>
-			<div className={classes.info}>
+			<Paper className={classes.info}>
 				<Typography variant="h3">Albert Nicola</Typography>
 				<Typography variant="subtitle1">Student</Typography>
-				<Paper className={classes.needScore}>4.2</Paper>
-			</div>
-			<Paper className={classes.bio}>
-				<Typography variant="h2">ABOUT</Typography>
-				<Typography variant="body1">
-					
+				<Paper className={classes.needScore} style={{ gridColumn: "2/3", gridRow: "1/2" }}>4.2</Paper>
+				<Typography variant="body1" style={{gridColumn: "1/-1", gridRow: "3/5"}}>
+					I am a self-taught Full-Stack Developer, UI Designer, like giving talks on technologies, Linux enthusiast, passionate about solving problem realated to technologies love taking part in hackthons and competitive programming competitions
 				</Typography>
 			</Paper>
 			<Paper className={classes.about}>
 				<Typography variant="h2">ABOUT</Typography>
 				<DropDownDisplay />
+			</Paper>
+			<Paper className={classes.booksTransection}>
+				<Transections />
 			</Paper>
 		</div>
 	);	

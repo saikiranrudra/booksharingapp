@@ -66,7 +66,7 @@ const useStyles = makeStyles(theme => ({
 			padding: "1rem 5rem",
 			textAlign: "center",
 			textTransform: "uppercase",
-			transitionProperty: "background, color",
+			transitionProperty: "background",
 			transitionDuration: ".1s",
 			transitionTimingFunction: "cubic-bezier(.17,.67,.85,.54)",
 			"&:hover": {
