@@ -13,7 +13,7 @@ This is a UI for bookSharing application developed for regional level Smart Guja
 4. Redux (State management library)
 5. React Router (Routing library for Reat)
 
-##How to Start
+## How to Start
 1. Go to Project and Open Terminal run the following command
 ```js
 npm install // for installing all dependencies
