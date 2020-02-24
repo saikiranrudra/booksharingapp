@@ -4,6 +4,9 @@ import { Paper, TextField, Button, Typography } from "@material-ui/core";
 
 import {makeStyles} from "@material-ui/core/styles";
 
+import { connect } from "react-redux";
+import { signIn } from "./../actions"; 
+
 const useStyles = makeStyles( theme => ({
 	container: {
 		position: "absolute",
@@ -31,18 +34,22 @@ const useStyles = makeStyles( theme => ({
 	}
 }))
 
-const Auth = () => {
+const Auth = (props) => {
 	const classes = useStyles();
 	return (
 		<Paper className={classes.container}>
 			<Typography variant="h4" style={{ fontWeight: 400 }}>Sign In</Typography>
-			<TextField className={classes.input} required type="number" label="Enrollment No" />
+			<TextField className={classes.input} required type="text" label="Enrollment No" />
 			<br />
 			<TextField className={classes.input} required type="password" label="Password" />
 			<br />
-			<Button  className={classes.btn} variant="contained">Submit</Button>
+			<Button  className={classes.btn} onClick={() => props.signIn() } variant="contained">Submit</Button>
 		</Paper>
 	); 
 } 
 
-export default Auth;
+const mapStateTopProps = (state) => {
+	return state;	
+}
+
+export default connect(mapStateTopProps, { signIn })(Auth);

@@ -8,6 +8,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles } from "@material-ui/core/styles";
 import {Motion, spring} from "react-motion";
 
+import { connect } from "react-redux";
+import { signOut } from "./../actions";
+
 const useStyles = makeStyles(theme => ({
 	menu: {
 		display: "inline-block",
@@ -86,7 +89,7 @@ const useStyles = makeStyles(theme => ({
 
 }));
 	
-const Menu = () => {
+const Menu = (props) => {
 	const classes = useStyles();
 	const menuStyleDefault = {
 		scale: 1,
@@ -101,6 +104,9 @@ const Menu = () => {
 	};
 
 	const handleMenuLinks = () => {
+		if(props.isLogin) {
+			props.signOut();
+		}
 		setIsOpen(1);
 	}
 
@@ -138,7 +144,9 @@ const Menu = () => {
 							<li><Link className={classes.link} onClick={handleMenuLinks} to="/">Home</Link></li>
 							<li><Link className={classes.link} onClick={handleMenuLinks} to="/dashboard">Dashboard</Link></li>
 							<li><Link className={classes.link} onClick={handleMenuLinks} to="/auth">Explore</Link></li>
-							<li><Link className={classes.link} onClick={handleMenuLinks} to="/auth">Sign In</Link></li>
+							<li><Link className={classes.link} onClick={handleMenuLinks} to="/auth">	
+								{props.isLogin ? "Sign out" : "Sign in"}
+							</Link></li>
 							
 						</ul>}
 					</React.Fragment>
@@ -148,4 +156,6 @@ const Menu = () => {
 	);
 };
 
-export default Menu;
+const mapStateToProps = (state) => state;
+
+export default connect(mapStateToProps, { signOut })(Menu);
