@@ -11,7 +11,7 @@ const DonateBtn = () => {
 				style={{ 
 					background: "linear-gradient(to right bottom, #8e2de2, #4a00e0)", 
 					color: "#eee",
-					marginLeft: "70%"
+					marginLeft: "67%"
 				}}
 			>
 			

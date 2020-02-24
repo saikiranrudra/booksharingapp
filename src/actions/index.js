@@ -9,3 +9,10 @@ exports.signOut = () => {
 		type: "SIGNOUT"
 	}
 }
+
+exports.donation = (data) => {
+	return {
+		type: "MAKE_DONATION",
+		payload: data
+	}
+}

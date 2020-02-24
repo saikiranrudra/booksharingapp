@@ -13,6 +13,7 @@ import Dashboard from "./Dashboard";
 import HeroContent from "./HeroContent";
 import DonationForm from "./DonationForm";
 import DonateBtn from "./DonateBtn";
+import BookShow from "./BookShow";
 
 const App = (props) => {
 	return (
@@ -33,6 +34,9 @@ const App = (props) => {
 			</Route>
 			<Route path="/donate" exact>
 				{props.isLogin ? <DonationForm /> : <Auth />}
+			</Route>
+			<Route path="/explore" exact>
+				<BookShow />
 			</Route>
 		</>
 	);

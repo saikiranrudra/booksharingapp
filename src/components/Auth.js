@@ -17,7 +17,7 @@ const useStyles = makeStyles( theme => ({
 		padding: theme.spacing(2),
 		["@media(max-width: 457px)"]: {
 			width: "95%",
-			margin: "rem"
+			margin: "1rem"
 		}
 	},
 	input: {

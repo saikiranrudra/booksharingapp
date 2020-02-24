@@ -143,7 +143,7 @@ const Menu = (props) => {
 						>
 							<li><Link className={classes.link} onClick={handleMenuLinks} to="/">Home</Link></li>
 							<li><Link className={classes.link} onClick={handleMenuLinks} to="/dashboard">Dashboard</Link></li>
-							<li><Link className={classes.link} onClick={handleMenuLinks} to="/auth">Explore</Link></li>
+							<li><Link className={classes.link} onClick={handleMenuLinks} to="/explore">Explore</Link></li>
 							<li><Link className={classes.link} onClick={handleMenuLinks} to="/auth">	
 								{props.isLogin ? "Sign out" : "Sign in"}
 							</Link></li>
