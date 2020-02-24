@@ -1,6 +1,6 @@
 import React,{ useState } from "react";
 
-import { Paper, TextField, Button } from "@material-ui/core";
+import { Paper, TextField, Button, Typography } from "@material-ui/core";
 
 import {makeStyles} from "@material-ui/core/styles";
 
@@ -31,37 +31,16 @@ const useStyles = makeStyles( theme => ({
 	}
 }))
 
-const renderForm = (type = "signin", classes) => {
-	if(type === "signin") {
-		return (
-			<>
-				<TextField className={classes.input} required type="number" label="Enrollment No" />
-				<br />
-				<TextField className={classes.input} required type="password" label="Password" />
-				<br />
-				<Button  className={classes.btn} variant="co">Submit</Button>
-			</>
-		);
-	} else if (type === "signup") {
-		return (
-			<>
-				<TextField className={classes.input} required type="number" label="Enrollment No" />	
-				<br />
-				<Button  className={classes.btn} variant="contained">Submit</Button>
-			</>
-		);
-	} 
-}
-
 const Auth = () => {
 	const classes = useStyles();
-	const [type, setType] = useState("signin");
 	return (
 		<Paper className={classes.container}>
-			<Button className={classes.options} variant="contained" onClick={() => setType("signin")}>SignIn</Button>
-			<Button className={classes.options} variant="contained" onClick={() => setType("signup")}>SignUp</Button>
+			<Typography variant="h4" style={{ fontWeight: 400 }}>Sign In</Typography>
+			<TextField className={classes.input} required type="number" label="Enrollment No" />
 			<br />
-			{renderForm(type, classes)}
+			<TextField className={classes.input} required type="password" label="Password" />
+			<br />
+			<Button  className={classes.btn} variant="contained">Submit</Button>
 		</Paper>
 	); 
 } 

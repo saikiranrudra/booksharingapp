@@ -137,8 +137,9 @@ const Menu = () => {
 						>
 							<li><Link className={classes.link} onClick={handleMenuLinks} to="/">Home</Link></li>
 							<li><Link className={classes.link} onClick={handleMenuLinks} to="/dashboard">Dashboard</Link></li>
-							<li>Favourite</li>
+							<li><Link className={classes.link} onClick={handleMenuLinks} to="/auth">Explore</Link></li>
 							<li><Link className={classes.link} onClick={handleMenuLinks} to="/auth">Sign In</Link></li>
+							
 						</ul>}
 					</React.Fragment>
 				)}

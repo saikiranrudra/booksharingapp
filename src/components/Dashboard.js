@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
 		gridAutoRows: "2rem",
 		padding: "1rem .5rem",
 		gridGap: ".5rem",
-		width: "100%"
+		width: "100%",
 	},
 	imageContainer: {
 		display: "inline-block",
@@ -69,7 +69,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	booksTransection: {
 		gridColumn: "18 / -1",
-		gridRow: "1/14"	
+		gridRow: "1/14"
 	}
 }));
 

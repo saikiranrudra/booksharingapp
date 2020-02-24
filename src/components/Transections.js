@@ -7,6 +7,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Badge from '@material-ui/core/Badge';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -74,6 +75,7 @@ const Transection = () => {
 		        >
 		          <Tab label="Donations" {...a11yProps(0)} />
 		          <Tab label="Got in Donation" {...a11yProps(1)} />
+		          <Tab label="Notifications (0)" {...a11yProps(1)} />	
 		        </Tabs>
 		    </AppBar>
 		    <SwipeableViews
@@ -86,6 +88,9 @@ const Transection = () => {
 	        </TabPanel>
 	        <TabPanel value={value} index={1} dir={theme.direction}>
 	          Got in Donation
+	        </TabPanel>
+	        <TabPanel value={value} index={2} dir={theme.direction}>
+	          There is no Notifications to show right now
 	        </TabPanel>
       		</SwipeableViews>
     	</div>
