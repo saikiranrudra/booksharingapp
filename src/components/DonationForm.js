@@ -1,16 +1,17 @@
 import React, {useState} from "react";
 
-import { TextField, Typography, Paper, makeStyles, Select } from "@material-ui/core";
+import { TextField, Typography, Paper, makeStyles, Select, Button } from "@material-ui/core";
 
 const useStyles = makeStyles( theme => ({
 	container: {
 		display: "inline-block",
-		position: "absolute",
-		top: "50%",
+		position: "relative",
+		//top: "50%",
 		left: "50%",
-		transform: "translate(-50%, -50%)",
+		transform: "translateX(-50%)",
 		padding: ".8rem 1rem",
-		textAlign: "center"
+		textAlign: "center",
+		marginBottom: "3rem"		
 	},
 	title: {
 		fontWeight: 300,
@@ -50,8 +51,6 @@ const DonationForm = () => {
 			<br />
 			<TextField className={classes.input} required type="file" label="Book Image" />
 			<br />
-			<TextField className={classes.input} required type="text" label="Book Type" />
-			<br />
 			<TextField className={classes.input} required type="text" label="Tags" />
 			<br />
 			<Select
@@ -64,6 +63,17 @@ const DonationForm = () => {
 	          <option value="notes">Notes</option>
 	          <option value="hand written notes">Hand Written Notes</option>
 	        </Select>
+	        <br />
+	        <Button 
+	        	variant="contained" 
+	        	style= {{ 
+	        		color: "#eee",  
+	        		background: "linear-gradient(to right bottom, #8e2de2, #4a00e0)",
+	        		marginTop: "1rem" 
+	        	}}
+	        >
+	        	Submit
+	        </Button>
 		</Paper>
 	);
 }
