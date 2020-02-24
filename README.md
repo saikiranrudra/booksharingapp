@@ -1,7 +1,7 @@
 # BookSharing APP UI
 This is a UI for bookSharing application developed for regional level Smart Gujarat Hackthon, This's a single page web Application a platform were students, alumni and Faculties of a Univesity can Donate their un used books so that stuents who are in need can get it.   
 
-## Requrement
+## Requirement
 1. Nodejs
 2. NPM
 3. Modern Bowser (Google Chrome, Firefox recommended)
