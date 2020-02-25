@@ -1,14 +1,20 @@
 import { combineReducers } from "redux";
 
-const login = (isLogin=false, action) => {
+const login = (auth = { isSignIn: false, info: null }, action) => {
 	if(action.type === "SIGNIN") {
-		return true;
-	} else if (isLogin === "SIGNOUT") {
-		return false;
+		return {
+			isSignIn: true,
+			info: action.payload
+		};
+	} else if (action.type === "SIGNOUT") {
+		return {
+			isSignIn: false,
+			info: null
+		};
 	}
-	return false;
+	return auth;
 }
 
 export default combineReducers({
-	isLogin: login
+	auth: login
 });

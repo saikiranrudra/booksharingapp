@@ -6,6 +6,8 @@ import {makeStyles} from "@material-ui/core";
 import DropDownDisplay from "./DropDownDisplay";
 import Transections from "./Transections"
 
+import { connect } from "react-redux";
+
 const useStyles = makeStyles(theme => ({
 	container: {
 		display: "grid",
@@ -30,7 +32,6 @@ const useStyles = makeStyles(theme => ({
 		gridColumn: "8/18",
 		gridRow: "1/8",
 		alignItems: "center",
-		justifySelf: "flex-start",
 		padding: "0.9rem",
 		"& > h3": {
 			fontSize: "1.7rem",
@@ -73,24 +74,25 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const Dashboard = () => {
+const Dashboard = (props) => {
 	const classes = useStyles(); 
 	return(
 		<div className={classes.container}>
+			{console.log(props)}
 			<Paper className={classes.imageContainer}>
 				<img className={classes.image} src="https://pbs.twimg.com/profile_images/969073897189523456/rSuiu_Hr.jpg" />
 			</Paper>
 			<Paper className={classes.info}>
-				<Typography variant="h3">Albert Nicola</Typography>
-				<Typography variant="subtitle1">Student</Typography>
-				<Paper className={classes.needScore} style={{ gridColumn: "2/3", gridRow: "1/2" }}>4.2</Paper>
+				<Typography variant="h3">{props.auth.info.data.name}</Typography>
+				<Typography variant="subtitle1">{props.auth.info.data.userType}</Typography>
+				<Paper className={classes.needScore} style={{ gridColumn: "2/3", gridRow: "1/2" }}>{props.auth.info.data.needScore}</Paper>
 				<Typography variant="body1" style={{gridColumn: "1/-1", gridRow: "3/5"}}>
-					I am a self-taught Full-Stack Developer, UI Designer, like giving talks on technologies, Linux enthusiast, passionate about solving problem realated to technologies love taking part in hackthons and competitive programming competitions
+					{props.auth.info.data.description ? props.auth.info.data.description : "nothing defined"}
 				</Typography>
 			</Paper>
 			<Paper className={classes.about}>
 				<Typography variant="h2">ABOUT</Typography>
-				<DropDownDisplay />
+				<DropDownDisplay info={props.auth.info.data} />
 			</Paper>
 			<Paper className={classes.booksTransection}>
 				<Transections />
@@ -99,4 +101,6 @@ const Dashboard = () => {
 	);	
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => state;
+
+export default connect(mapStateToProps)(Dashboard);

@@ -6,10 +6,11 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const DropDownDisplay = (props) => {
+const DropDownDisplay = ({info}) => {
 	return(
 
 		<>
+			
 			<ExpansionPanel>
 		        <ExpansionPanelSummary
 		          expandIcon={<ExpandMoreIcon />}
@@ -20,7 +21,7 @@ const DropDownDisplay = (props) => {
 		        </ExpansionPanelSummary>
 		        <ExpansionPanelDetails>
 		          	<Typography>
-			            2 Year 4th semister
+			            {info.semester ? `${info.semester} sem ${info.branch}`  : "nothing defined" }
 		          	</Typography>
 		        </ExpansionPanelDetails>  	
 		    </ExpansionPanel>
@@ -35,7 +36,7 @@ const DropDownDisplay = (props) => {
 		        </ExpansionPanelSummary>
 		        <ExpansionPanelDetails>
 		          <Typography>
-		            420000
+		            {info.income ? info.income : "nothing defined" }
 		          </Typography>
 		        </ExpansionPanelDetails>
 		  	</ExpansionPanel>
@@ -50,7 +51,7 @@ const DropDownDisplay = (props) => {
 		        </ExpansionPanelSummary>
 		        <ExpansionPanelDetails>
 		          <Typography>
-		          	8.7
+		          	{info.acdamicScore ? info.acdamicScore : "nothing defined" }
 		          </Typography>
 		        </ExpansionPanelDetails>
 		  	</ExpansionPanel>

@@ -104,7 +104,7 @@ const Menu = (props) => {
 	};
 
 	const handleMenuLinks = () => {
-		if(props.isLogin) {
+		if(props.auth.isSignIn) {
 			props.signOut();
 		}
 		setIsOpen(1);
@@ -145,7 +145,7 @@ const Menu = (props) => {
 							<li><Link className={classes.link} onClick={handleMenuLinks} to="/dashboard">Dashboard</Link></li>
 							<li><Link className={classes.link} onClick={handleMenuLinks} to="/explore">Explore</Link></li>
 							<li><Link className={classes.link} onClick={handleMenuLinks} to="/auth">	
-								{props.isLogin ? "Sign out" : "Sign in"}
+								{props.auth.isSignIn ? "Sign out" : "Sign in"}
 							</Link></li>
 							
 						</ul>}

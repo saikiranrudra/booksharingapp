@@ -1,6 +1,7 @@
-exports.signIn = () => {
+exports.signIn = (info) => {
 	return {
-		type: "SIGNIN"
+		type: "SIGNIN",
+		payload: info
 	}
 }
 

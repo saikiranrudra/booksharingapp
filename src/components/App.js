@@ -14,6 +14,7 @@ import HeroContent from "./HeroContent";
 import DonationForm from "./DonationForm";
 import DonateBtn from "./DonateBtn";
 import BookShow from "./BookShow";
+import BookDetail from "./BookDetail";
 
 const App = (props) => {
 	return (
@@ -28,15 +29,18 @@ const App = (props) => {
 			</Route>
 			<Route path="/auth" exact>
 				<Auth />
-			</Route>
+			</Route>	
 			<Route path="/dashboard" exact>
-				{props.isLogin ? <Dashboard /> : <Auth />}  
+				{props.auth.isSignIn ? <Dashboard /> : <Auth />}  
 			</Route>
 			<Route path="/donate" exact>
-				{props.isLogin ? <DonationForm /> : <Auth />}
+				{props.auth.isSignIn ? <DonationForm /> : <Auth />}
 			</Route>
 			<Route path="/explore" exact>
 				<BookShow />
+			</Route>
+			<Route path="/explore/bookdetail">
+				<BookDetail />
 			</Route>
 		</>
 	);

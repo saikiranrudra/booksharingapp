@@ -42,25 +42,24 @@ const DonationForm = () => {
 		subject: "",
 		department: "",
 		author: "",
-		file: "",
-		tags: ""
+		bookImage: "",
+		tag: ""
 	});
 
 	const handleChange = (event) => {
-		setType(event.target.value);
-		
+		setType(event.target.value);	
 	}
 
 	const handleForm = (event) => {
 		event.preventDefault();
 		  //formData: form data
 		  //type: book type 
-		  // axios
-		  //   .post('https://fast-everglades-73327.herokuapp.com/api/v1/book', {
-		      
-		  //   })
-		  //   .then(res => showOutput(res))
-		  //   .catch(err => console.error(err))
+		  axios
+		    .post('https://fast-everglades-73327.herokuapp.com/api/v1/book', 
+		      {...formData, bookType: type}
+		    )
+		    .then(res => console.log(res))
+		    .catch(err => console.error(err))
 	} 
 	
 	return (
@@ -107,22 +106,26 @@ const DonationForm = () => {
 					onChange={e => setFormData({...formData, author: e.target.value})} 
 				/>
 				<br />
+				
+				
 				<TextField 
 					className={classes.input} 
-					required type="file" 
-					name="file"
-					value={formData.file} 
+					required 
+					type="text" 
+					name="Image_Link"
+					value={formData.bookImage} 
 					label="Book Image" 
-					onChange={e => setFormData({...formData, file: e.target.value})}
+					onChange={e => setFormData({...formData, bookImage: e.target.value})}
 				/>
+				
 				<br />
 				<TextField 
 					className={classes.input} 
 					required 
 					type="text" 
 					label="Tags" 
-					value={formData.tags}
-					onChange={e => setFormData({...formData, tags: e.target.value})}
+					value={formData.tag}
+					onChange={e => setFormData({...formData, tag: e.target.value})}
 				/>
 				<br />
 				<Select
